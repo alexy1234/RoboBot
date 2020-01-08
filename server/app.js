@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var postExampleRouter = require('./routes/post_example');
 var getExampleRouter = require('./routes/get_example');
-
+var spawndockerRouter = require('./routes/spawn_docker');
 
 var app = express();
 const bodyparser = require("body-parser");
@@ -16,6 +16,7 @@ const bodyparser = require("body-parser");
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+//Middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,9 +24,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyparser.urlencoded({ extended: false }));
 
+//Routing
 app.use('/', indexRouter);
 app.use('/post_example', postExampleRouter);
 app.use('/get_example', getExampleRouter);
+app.use('/spawn_docker', spawnDockerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
