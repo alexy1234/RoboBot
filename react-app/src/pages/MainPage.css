@@ -1,0 +1,18 @@
+.container {
+	min-height: 100%;
+}
+
+.gameSection {
+	height: 80%;
+	background-color: #D0FFF0;
+}
+
+.consoleSection {
+	height: 20%;
+	background-color: #FFD0E1;
+}
+
+.editorSection {
+	height: 100%;
+	background-color: #C3FFFB;
+}
