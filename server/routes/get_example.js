@@ -9,7 +9,8 @@ var Database = require("../model/database");
 router.get('/', function(req, res, next) {
   result = []
   Database.TestModel.find().then((result) => {
-  	res.send(result);
+  	console.log(JSON.stringify(result));
+  	res.send(JSON.stringify(result));
   }).catch((e) => {
   	console.log(e);
   	console.log("Fetch data from TestModel FAILED!");

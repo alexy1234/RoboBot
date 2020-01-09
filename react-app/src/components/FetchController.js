@@ -2,26 +2,26 @@
   */
 
 import React from 'react';
+import axios from 'axios';
 
 class FetchController extends React.Component {
 	state = {
-		data: [],
+		loading: true,
 		error: false,
-		loading: true
+		data: []
 	}
 
 	componentDidMount() {
-		fetch(this.props.url).then(res => {
-			return res.json();
-		})
-		.then(data => this.setState({loading: false, data: data}))
-		.catch(error => this.setState({loading: false, error: error}))
-
+		axios.get(this.props.url).then(res => {
+			this.setState({loading: false, data: res.data});
+		}).catch(error => this.setState({loading: false, error: error}))
 	}
 
 	render() {
 		return (
-			this.props.children(this.state);
+			<ul>
+				{ this.state.data.map(data => <li>{data.name}</li>) }
+			</ul>
 		);
 	}
 }
