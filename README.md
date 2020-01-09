@@ -21,6 +21,24 @@ Update node_modules with
 Start nodejs server using
 #### `npm start`
 
+# Utilities
+### Fetching data from Node.js server
+See Passing props to children via functions.
+```
+<FetchController url="/insert/relative/url">
+    {({loading, error, data}) => (
+      <>
+        // If error is non-empty, display error
+        { error && <p> Error: {error} </p> }
+        
+        // DO TASK HERE
+        
+      </>
+      )
+    }
+</FetchController>
+```
+
 # Project File Structure
 ### React App
 
