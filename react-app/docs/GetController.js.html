@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: PostController.js</title>
+    <title>JSDoc: Source: GetController.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: PostController.js</h1>
+    <h1 class="page-title">Source: GetController.js</h1>
 
     
 
@@ -26,43 +26,37 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>/** Controls and Manages client-server interactions
+  */
+
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 /**
-  * Custom Hook to POST data to API
+  * Custom Hook to GET data from API
   * @param {string} url API endpoint route
-  * @param {object} data Data object to POST
   * @return {object} {response, loading flag, error}
   * @example &lt;caption>Example usage of usePostData&lt;/caption>
-  * function PostTest() {
-  *   // Call usePostData custom hook
-  *   const {res, loading, error} = usePostData("/post_example", {"name": "KEVIN"});
+  * function GetTest(){
+  *   const {res, loading, e} = useGetData("/get_example");
   *
   *   return (
   *     &lt;>
   *       {res &amp;&amp; &lt;p>{res}&lt;/p>}
   *       {loading &amp;&amp; &lt;p>{loading}&lt;/p>}
-  *       {error &amp;&amp; &lt;p>{error}&lt;/p>}
+  *       {e &amp;&amp; &lt;p>{e}&lt;/p>}
   *     &lt;/>
-  *   )
+  *   );
   * }
   */
-function usePostData(url, data) {
+function useGetData(url) {
   const [res, setRes] = useState([])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const headers = {
-    'Content-Type': 'application/json',
-  }
-
   useEffect(() => {
     setLoading(true);
-    axios.post(url, 
-           data,
-           {headers: headers}).then((res) => {
+    axios.get(url).then((res) => {
       setRes(JSON.stringify(res.data));
       setLoading(false);
     }).catch(e => {
@@ -73,7 +67,35 @@ function usePostData(url, data) {
   return {res, loading, error};
 }
 
-export default usePostData;</code></pre>
+export default useGetData;
+
+//
+//
+//
+//
+
+// Deprecate component GET controller
+class GetController extends React.Component {
+    state = {
+        data: [],
+        loading: true,
+        error: false,
+    }
+
+    componentDidMount() {
+        axios.get(this.props.url).then(res => {
+            this.setState({loading: false, data: JSON.stringify(res.data)});
+        }).catch(error => this.setState({loading: false, error: error}))
+    }
+
+    render() {
+        return (
+            &lt;div>
+                {this.props.children(this.state)}
+            &lt;/div>
+        );
+    }
+}</code></pre>
         </article>
     </section>
 
