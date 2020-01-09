@@ -13,15 +13,15 @@ class FetchController extends React.Component {
 
 	componentDidMount() {
 		axios.get(this.props.url).then(res => {
-			this.setState({loading: false, data: res.data});
+			this.setState({loading: false, data: JSON.stringify(res.data)});
 		}).catch(error => this.setState({loading: false, error: error}))
 	}
 
 	render() {
 		return (
-			<ul>
-				{ this.state.data.map(data => <li>{data.name}</li>) }
-			</ul>
+			<div>
+				{this.props.children(this.state)}
+			</div>
 		);
 	}
 }
