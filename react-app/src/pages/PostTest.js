@@ -6,6 +6,8 @@ import usePostData from '../components/PostController';
   * Hooks cannot be called inside components. 
   * This delegates the hook as the controller and the function as the presenter
   */
+
+
 function PostTest() {
   // Call usePostData custom hook
   const {res, loading, error} = usePostData("/post_example", {"name": "KEVIN"});

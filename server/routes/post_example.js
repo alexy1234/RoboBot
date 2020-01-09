@@ -31,7 +31,8 @@ router.post('/', function(req, res, next) {
         message: "Request body POST-ed",
         request_body: req.body
     });
-  }).catch(() => {
+  }).catch((e) => {
+    console.log(e);
     console.log("Data save failed");
   });
 });
