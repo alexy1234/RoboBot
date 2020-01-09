@@ -1,5 +1,5 @@
 # Usage
-### Running React App
+## Running React App
 First navigate to `react-app/` directory
 #### `cd react-app`
 \
@@ -9,7 +9,7 @@ Update node_modules with
 Start nodejs server using
 #### `npm start`
 
-### Running Node.js Server
+## Running Node.js Server
 Obtain config.json file containing necessary API keys. Place config.json inside `server/` directory.
 
 Next, navigate to `server/` directory
@@ -20,6 +20,22 @@ Update node_modules with
 \
 Start nodejs server using
 #### `npm start`
+
+## Generating documentation
+See https://devhints.io/jsdoc for syntax
+
+\
+Navigate to either `react-app/` or `server/`
+
+\
+Generate jsdoc files using
+#### `npm run docs`
+\
+View current documentation at
+#### `react-app/docs/index.html`
+or
+#### `server/docs/index.html`
+
 
 # Project File Structure
 ### React App
@@ -39,7 +55,7 @@ Config file for app-wide settings
 ##### `package-lock.json`
 Contains all dependencies information
 ##### `node_modules/`
-Includes installed dependencies. Use npm ci to install correct dependency versions according to package-lock.json. 
+Includes installed dependencies. Use npm ci to install correct dependency versions according to package-lock.json.
 
 ### Node.js server
 ##### `bin/www`
@@ -49,7 +65,7 @@ Contains all routes available on server. Each route serves as an API entry point
 ##### `model/`
 See MVC architecture. Contains database files.
 ##### `views/`
-View templates in Jade. See MVC architecture. 
+View templates in Jade. See MVC architecture.
 ##### `App.js`
 Require and Use middlewares and Routes. Catch and handle errors.
 ##### `public/`
@@ -59,4 +75,4 @@ Config file for app-wide settings
 ##### `package-lock.json`
 Contains all dependencies information
 ##### `node_modules`
-Includes installed dependencies. Use npm ci to install correct dependency versions according to package-lock.json. 
+Includes installed dependencies. Use npm ci to install correct dependency versions according to package-lock.json.
