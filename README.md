@@ -1,6 +1,6 @@
 # Usage
 ### Running React App
-First navigate to react-app/ directory
+First navigate to `react-app/` directory
 #### `cd react-app`
 \
 Update node_modules with
@@ -12,7 +12,7 @@ Start nodejs server using
 ### Running Node.js Server
 Obtain config.json file containing necessary API keys. Place config.json inside `server/` directory.
 
-Next, navigate to server/ directory
+Next, navigate to `server/` directory
 #### `cd server`
 \
 Update node_modules with
@@ -24,6 +24,7 @@ Start nodejs server using
 # Utilities
 ### Fetching data from Node.js server
 See Passing props to children via functions.
+Any nested components inside `<> </>` code block as shown below will have access to loading(loading flag), error(error response), and data(json) props.
 ```
 <FetchController url="/insert/relative/url">
     {({loading, error, data}) => (

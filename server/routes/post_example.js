@@ -17,12 +17,11 @@ router.post('/', function(req, res, next) {
   const body = req.body;
 
   // Logging
-  console.log(req.body);
-  console.log(req.body.data); 
+  console.log("request body: ", req.body);
 
   // Create data model instance with request body
   var TestData = new Database.TestModel({
-    name: req.body.data
+    name: req.body.name
   });
 
   // Save data instance into database

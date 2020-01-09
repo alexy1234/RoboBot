@@ -4,11 +4,11 @@
 import React from 'react';
 import axios from 'axios';
 
-class FetchController extends React.Component {
+class GetController extends React.Component {
 	state = {
+		data: [],
 		loading: true,
 		error: false,
-		data: []
 	}
 
 	componentDidMount() {
@@ -26,4 +26,4 @@ class FetchController extends React.Component {
 	}
 }
 
-export default FetchController;
+export default GetController;

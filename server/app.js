@@ -9,8 +9,10 @@ var postExampleRouter = require('./routes/post_example');
 var getExampleRouter = require('./routes/get_example');
 var spawnDockerRouter = require('./routes/spawn_docker');
 
-var app = express();
 const bodyparser = require("body-parser");
+
+var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,10 +21,10 @@ app.set('view engine', 'jade');
 //Middleware
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({ extended: true }));
 
 //Routing
 app.use('/', indexRouter);
