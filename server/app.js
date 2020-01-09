@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var postExampleRouter = require('./routes/post_example');
 var getExampleRouter = require('./routes/get_example');
-var spawndockerRouter = require('./routes/spawn_docker');
+var spawnDockerRouter = require('./routes/spawn_docker');
 
 var app = express();
 const bodyparser = require("body-parser");
