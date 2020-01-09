@@ -24,6 +24,8 @@ Start nodejs server using
 ## Generating documentation
 See https://devhints.io/jsdoc for syntax
 
+See https://www.inkoop.io/blog/a-guide-to-js-docs-for-react-js/ for documenting react
+
 \
 Navigate to either `react-app/` or `server/`
 
