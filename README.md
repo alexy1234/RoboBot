@@ -1,3 +1,4 @@
+# DEPRECATED. Do NOT use this repository.
 # Usage
 ## Running React App
 First navigate to `react-app/` directory
